@@ -52,11 +52,11 @@ public class MateriaController {
     @PutMapping("/actualizar/{codigo}")
     public ResponseEntity<Materia> actualizarMateria(@RequestBody Materia c, @PathVariable Integer id) {
         Materia materia = materiaService.findById(id);
-        materia.setEvaluacionList(c.getEvaluacionList());
-        materia.setIdCiclo(c.getIdCiclo());
-        materia.setIdMateria(c.getIdMateria());
-        materia.setNombreMateria(c.getNombreMateria());
-        materia.setPersonaMateriaList(c.getPersonaMateriaList());
+//        materia.setEvaluacionList(c.getEvaluacionList());
+//        materia.setIdCiclo(c.getIdCiclo());
+//        materia.setIdMateria(c.getIdMateria());
+//        materia.setNombreMateria(c.getNombreMateria());
+//        materia.setPersonaMateriaList(c.getPersonaMateriaList());
         return new ResponseEntity<>(materiaService.save(materia), HttpStatus.CREATED);
 
     }

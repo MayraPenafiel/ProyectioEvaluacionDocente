@@ -1,11 +1,13 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package com.proyecto.evaluaciondocente.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
-import java.util.List;
+import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -18,12 +20,13 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author ISTA
+ * @author TUF Gaming
  */
 @Entity
 @Table(name = "carrera")
@@ -41,14 +44,19 @@ public class Carrera implements Serializable {
     @Basic(optional = false)
     @Column(name = "id_carrera")
     private Integer idCarrera;
+    @Size(max = 45)
     @Column(name = "nombre_carrera")
     private String nombreCarrera;
+    @Size(max = 45)
     @Column(name = "descripcion")
     private String descripcion;
+    @JsonIgnore
     @OneToMany(mappedBy = "idCarrera")
-    private List<Ciclo> cicloList;
+    private Collection<Ciclo> cicloCollection;
+    @JsonIgnore
     @OneToMany(mappedBy = "idCarrera")
-    private List<Evaluacion> evaluacionList;
+    private Collection<Evaluacion> evaluacionCollection;
+    @JsonIgnore
     @JoinColumn(name = "id_periodo_academico", referencedColumnName = "id_periodo_academico")
     @ManyToOne
     private PeriodoAcademico idPeriodoAcademico;
@@ -85,21 +93,21 @@ public class Carrera implements Serializable {
     }
 
     @XmlTransient
-    public List<Ciclo> getCicloList() {
-        return cicloList;
+    public Collection<Ciclo> getCicloCollection() {
+        return cicloCollection;
     }
 
-    public void setCicloList(List<Ciclo> cicloList) {
-        this.cicloList = cicloList;
+    public void setCicloCollection(Collection<Ciclo> cicloCollection) {
+        this.cicloCollection = cicloCollection;
     }
 
     @XmlTransient
-    public List<Evaluacion> getEvaluacionList() {
-        return evaluacionList;
+    public Collection<Evaluacion> getEvaluacionCollection() {
+        return evaluacionCollection;
     }
 
-    public void setEvaluacionList(List<Evaluacion> evaluacionList) {
-        this.evaluacionList = evaluacionList;
+    public void setEvaluacionCollection(Collection<Evaluacion> evaluacionCollection) {
+        this.evaluacionCollection = evaluacionCollection;
     }
 
     public PeriodoAcademico getIdPeriodoAcademico() {
@@ -132,7 +140,7 @@ public class Carrera implements Serializable {
 
     @Override
     public String toString() {
-        return "com.example.evaluacion_docente.model.Carrera[ idCarrera=" + idCarrera + " ]";
+        return "com.proyecto.evaluaciondocente.model.Carrera[ idCarrera=" + idCarrera + " ]";
     }
     
 }

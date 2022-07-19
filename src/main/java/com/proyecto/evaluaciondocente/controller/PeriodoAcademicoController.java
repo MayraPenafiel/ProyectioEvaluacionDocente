@@ -51,7 +51,7 @@ public class PeriodoAcademicoController {
     public ResponseEntity<PeriodoAcademico> actualizarPeriodoAcademico(@RequestBody PeriodoAcademico c, @PathVariable String codigo) {
         int id = Integer.parseInt(codigo.substring(3));
         PeriodoAcademico periodoAcademico = periodoAcademicoService.findById(id);
-        periodoAcademico.setCarreraList(c.getCarreraList());
+        periodoAcademico.setCarreraCollection(c.getCarreraCollection());
         periodoAcademico.setFechaFin(c.getFechaFin());
         periodoAcademico.setFechaInicio(c.getFechaInicio());
         periodoAcademico.setIdPeriodoAcademico(c.getIdPeriodoAcademico());

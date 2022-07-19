@@ -50,8 +50,8 @@ public class FormularioController {
     @PutMapping("/actualizar/{codigo}")
     public ResponseEntity<Formulario> actualizarFormulario(@RequestBody Formulario c, @PathVariable Integer id) {
         Formulario formulario = formularioService.findById(id);
-        formulario.setEvaluacionList(c.getEvaluacionList());
-        formulario.setFormularioTipoformularioList(c.getFormularioTipoformularioList());
+//        formulario.setEvaluacionList(c.getEvaluacionList());
+//        formulario.setFormularioTipoformularioList(c.getFormularioTipoformularioList());
         formulario.setIdFormulario(c.getIdFormulario());
         formulario.setObservacion(c.getObservacion());
         formulario.setPreguntas(c.getPreguntas());

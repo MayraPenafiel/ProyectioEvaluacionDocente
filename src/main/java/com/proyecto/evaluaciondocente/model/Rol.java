@@ -1,12 +1,13 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package com.proyecto.evaluaciondocente.model;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Date;
-import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -19,12 +20,13 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author ISTA
+ * @author TUF Gaming
  */
 @Entity
 @Table(name = "rol")
@@ -43,15 +45,17 @@ public class Rol implements Serializable {
     @Basic(optional = false)
     @Column(name = "id_rol")
     private Integer idRol;
+    @Size(max = 255)
     @Column(name = "rol")
     private String rol;
+    @Size(max = 255)
     @Column(name = "descripcion")
     private String descripcion;
     @Column(name = "fecha_hora_registro")
     @Temporal(TemporalType.TIMESTAMP)
     private Date fechaHoraRegistro;
     @OneToMany(mappedBy = "idRol")
-    private List<Usuario> usuarioList;
+    private Collection<Usuario> usuarioCollection;
 
     public Rol() {
     }
@@ -93,12 +97,12 @@ public class Rol implements Serializable {
     }
 
     @XmlTransient
-    public List<Usuario> getUsuarioList() {
-        return usuarioList;
+    public Collection<Usuario> getUsuarioCollection() {
+        return usuarioCollection;
     }
 
-    public void setUsuarioList(List<Usuario> usuarioList) {
-        this.usuarioList = usuarioList;
+    public void setUsuarioCollection(Collection<Usuario> usuarioCollection) {
+        this.usuarioCollection = usuarioCollection;
     }
 
     @Override
@@ -123,7 +127,7 @@ public class Rol implements Serializable {
 
     @Override
     public String toString() {
-        return "com.example.evaluacion_docente.model.Rol[ idRol=" + idRol + " ]";
+        return "com.proyecto.evaluaciondocente.model.Rol[ idRol=" + idRol + " ]";
     }
     
 }

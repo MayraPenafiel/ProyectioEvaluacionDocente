@@ -1,12 +1,13 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package com.proyecto.evaluaciondocente.model;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Date;
-import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -20,12 +21,13 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author ISTA
+ * @author TUF Gaming
  */
 @Entity
 @Table(name = "persona")
@@ -53,23 +55,30 @@ public class Persona implements Serializable {
     @Basic(optional = false)
     @Column(name = "id_persona")
     private Integer idPersona;
+    @Size(max = 45)
     @Column(name = "nombre")
     private String nombre;
+    @Size(max = 45)
     @Column(name = "apellido")
     private String apellido;
     @Column(name = "fecha_nacimiento")
     @Temporal(TemporalType.DATE)
     private Date fechaNacimiento;
+    @Size(max = 45)
     @Column(name = "cedula")
     private String cedula;
+    @Size(max = 45)
     @Column(name = "celular")
     private String celular;
+    @Size(max = 45)
     @Column(name = "correo")
     private String correo;
     @Column(name = "genero")
     private Integer genero;
+    @Size(max = 120)
     @Column(name = "direccion")
     private String direccion;
+    @Size(max = 50)
     @Column(name = "foto")
     private String foto;
     @Column(name = "intruccion")
@@ -79,17 +88,17 @@ public class Persona implements Serializable {
     @Column(name = "estado_comision")
     private Integer estadoComision;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "persona")
-    private List<PersonaMateria> personaMateriaList;
+    private Collection<PersonaMateria> personaMateriaCollection;
     @OneToMany(mappedBy = "idPersona")
-    private List<Evaluacion> evaluacionList;
+    private Collection<Evaluacion> evaluacionCollection;
     @OneToMany(mappedBy = "idEstudiante")
-    private List<Evaluacion> evaluacionList1;
+    private Collection<Evaluacion> evaluacionCollection1;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "persona")
-    private List<AsignacionCoevaluacion> asignacionCoevaluacionList;
+    private Collection<AsignacionCoevaluacion> asignacionCoevaluacionCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "persona1")
-    private List<AsignacionCoevaluacion> asignacionCoevaluacionList1;
+    private Collection<AsignacionCoevaluacion> asignacionCoevaluacionCollection1;
     @OneToMany(mappedBy = "idPersona")
-    private List<Usuario> usuarioList;
+    private Collection<Usuario> usuarioCollection;
 
     public Persona() {
     }
@@ -203,57 +212,57 @@ public class Persona implements Serializable {
     }
 
     @XmlTransient
-    public List<PersonaMateria> getPersonaMateriaList() {
-        return personaMateriaList;
+    public Collection<PersonaMateria> getPersonaMateriaCollection() {
+        return personaMateriaCollection;
     }
 
-    public void setPersonaMateriaList(List<PersonaMateria> personaMateriaList) {
-        this.personaMateriaList = personaMateriaList;
-    }
-
-    @XmlTransient
-    public List<Evaluacion> getEvaluacionList() {
-        return evaluacionList;
-    }
-
-    public void setEvaluacionList(List<Evaluacion> evaluacionList) {
-        this.evaluacionList = evaluacionList;
+    public void setPersonaMateriaCollection(Collection<PersonaMateria> personaMateriaCollection) {
+        this.personaMateriaCollection = personaMateriaCollection;
     }
 
     @XmlTransient
-    public List<Evaluacion> getEvaluacionList1() {
-        return evaluacionList1;
+    public Collection<Evaluacion> getEvaluacionCollection() {
+        return evaluacionCollection;
     }
 
-    public void setEvaluacionList1(List<Evaluacion> evaluacionList1) {
-        this.evaluacionList1 = evaluacionList1;
-    }
-
-    @XmlTransient
-    public List<AsignacionCoevaluacion> getAsignacionCoevaluacionList() {
-        return asignacionCoevaluacionList;
-    }
-
-    public void setAsignacionCoevaluacionList(List<AsignacionCoevaluacion> asignacionCoevaluacionList) {
-        this.asignacionCoevaluacionList = asignacionCoevaluacionList;
+    public void setEvaluacionCollection(Collection<Evaluacion> evaluacionCollection) {
+        this.evaluacionCollection = evaluacionCollection;
     }
 
     @XmlTransient
-    public List<AsignacionCoevaluacion> getAsignacionCoevaluacionList1() {
-        return asignacionCoevaluacionList1;
+    public Collection<Evaluacion> getEvaluacionCollection1() {
+        return evaluacionCollection1;
     }
 
-    public void setAsignacionCoevaluacionList1(List<AsignacionCoevaluacion> asignacionCoevaluacionList1) {
-        this.asignacionCoevaluacionList1 = asignacionCoevaluacionList1;
+    public void setEvaluacionCollection1(Collection<Evaluacion> evaluacionCollection1) {
+        this.evaluacionCollection1 = evaluacionCollection1;
     }
 
     @XmlTransient
-    public List<Usuario> getUsuarioList() {
-        return usuarioList;
+    public Collection<AsignacionCoevaluacion> getAsignacionCoevaluacionCollection() {
+        return asignacionCoevaluacionCollection;
     }
 
-    public void setUsuarioList(List<Usuario> usuarioList) {
-        this.usuarioList = usuarioList;
+    public void setAsignacionCoevaluacionCollection(Collection<AsignacionCoevaluacion> asignacionCoevaluacionCollection) {
+        this.asignacionCoevaluacionCollection = asignacionCoevaluacionCollection;
+    }
+
+    @XmlTransient
+    public Collection<AsignacionCoevaluacion> getAsignacionCoevaluacionCollection1() {
+        return asignacionCoevaluacionCollection1;
+    }
+
+    public void setAsignacionCoevaluacionCollection1(Collection<AsignacionCoevaluacion> asignacionCoevaluacionCollection1) {
+        this.asignacionCoevaluacionCollection1 = asignacionCoevaluacionCollection1;
+    }
+
+    @XmlTransient
+    public Collection<Usuario> getUsuarioCollection() {
+        return usuarioCollection;
+    }
+
+    public void setUsuarioCollection(Collection<Usuario> usuarioCollection) {
+        this.usuarioCollection = usuarioCollection;
     }
 
     @Override
@@ -278,7 +287,7 @@ public class Persona implements Serializable {
 
     @Override
     public String toString() {
-        return "com.example.evaluacion_docente.model.Persona[ idPersona=" + idPersona + " ]";
+        return "com.proyecto.evaluaciondocente.model.Persona[ idPersona=" + idPersona + " ]";
     }
     
 }

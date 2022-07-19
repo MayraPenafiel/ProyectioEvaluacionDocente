@@ -1,6 +1,7 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package com.proyecto.evaluaciondocente.model;
 
@@ -14,11 +15,12 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author ISTA
+ * @author TUF Gaming
  */
 @Entity
 @Table(name = "estudiante")
@@ -37,10 +39,13 @@ public class Estudiante implements Serializable {
     @Basic(optional = false)
     @Column(name = "idEstudiante")
     private Integer idEstudiante;
+    @Size(max = 45)
     @Column(name = "nombre")
     private String nombre;
+    @Size(max = 45)
     @Column(name = "apellido")
     private String apellido;
+    @Size(max = 45)
     @Column(name = "cedula")
     private String cedula;
 
@@ -105,7 +110,7 @@ public class Estudiante implements Serializable {
 
     @Override
     public String toString() {
-        return "com.example.evaluacion_docente.model.Estudiante[ idEstudiante=" + idEstudiante + " ]";
+        return "com.proyecto.evaluaciondocente.model.Estudiante[ idEstudiante=" + idEstudiante + " ]";
     }
     
 }

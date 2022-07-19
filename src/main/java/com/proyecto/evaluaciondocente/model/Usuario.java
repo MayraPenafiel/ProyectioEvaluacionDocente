@@ -1,6 +1,7 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package com.proyecto.evaluaciondocente.model;
 
@@ -17,11 +18,12 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author ISTA
+ * @author TUF Gaming
  */
 @Entity
 @Table(name = "usuario")
@@ -38,12 +40,15 @@ public class Usuario implements Serializable {
     @Column(name = "id_usuario")
     private Integer idUsuario;
     @Lob
+    @Size(max = 2147483647)
     @Column(name = "usuario")
     private String usuario;
     @Lob
+    @Size(max = 2147483647)
     @Column(name = "contrasenia")
     private String contrasenia;
     @Lob
+    @Size(max = 2147483647)
     @Column(name = "fecha_hora_registro")
     private String fechaHoraRegistro;
     @JoinColumn(name = "id_persona", referencedColumnName = "id_persona")
@@ -130,7 +135,7 @@ public class Usuario implements Serializable {
 
     @Override
     public String toString() {
-        return "com.example.evaluacion_docente.model.Usuario[ idUsuario=" + idUsuario + " ]";
+        return "com.proyecto.evaluaciondocente.model.Usuario[ idUsuario=" + idUsuario + " ]";
     }
     
 }

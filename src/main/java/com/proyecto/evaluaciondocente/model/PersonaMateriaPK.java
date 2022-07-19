@@ -1,6 +1,7 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package com.proyecto.evaluaciondocente.model;
 
@@ -8,18 +9,21 @@ import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import javax.validation.constraints.NotNull;
 
 /**
  *
- * @author ISTA
+ * @author TUF Gaming
  */
 @Embeddable
 public class PersonaMateriaPK implements Serializable {
 
     @Basic(optional = false)
+    @NotNull
     @Column(name = "id_persona")
     private int idPersona;
     @Basic(optional = false)
+    @NotNull
     @Column(name = "id_materia")
     private int idMateria;
 
@@ -73,7 +77,7 @@ public class PersonaMateriaPK implements Serializable {
 
     @Override
     public String toString() {
-        return "com.example.evaluacion_docente.model.PersonaMateriaPK[ idPersona=" + idPersona + ", idMateria=" + idMateria + " ]";
+        return "com.proyecto.evaluaciondocente.model.PersonaMateriaPK[ idPersona=" + idPersona + ", idMateria=" + idMateria + " ]";
     }
     
 }

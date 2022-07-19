@@ -6,6 +6,7 @@ package com.proyecto.evaluaciondocente.controller;
 
 import com.proyecto.evaluaciondocente.model.Carrera;
 import com.proyecto.evaluaciondocente.services.CarreraService;
+import com.proyecto.evaluaciondocente.services.CarreraServiceImp;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -27,8 +28,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/carrera")
 public class CarreraController {
-     @Autowired
-    CarreraService carreraService;
+      @Autowired
+    private CarreraServiceImp carreraService;
 
     @GetMapping("/listar")
     public ResponseEntity<List<Carrera>> listar() {
@@ -36,31 +37,32 @@ public class CarreraController {
     }
 
     @PostMapping("/crear")
-    public ResponseEntity<Carrera> crearCarrera(@RequestBody Carrera c) {
-        return new ResponseEntity<>(carreraService.save(c), HttpStatus.CREATED);
-    }
-
-    @DeleteMapping("/eliminar/{id}")
-    public ResponseEntity<Carrera> eliminarCarrera(@PathVariable Integer id) {
-        carreraService.delete(id);
-        return new ResponseEntity<>(HttpStatus.OK);
-
-    }
-
-    @PutMapping("/actualizar/{id}")
-    public ResponseEntity<Carrera> actualizarCarrera(@RequestBody Carrera c, @PathVariable Integer id) {
-        Carrera carrera = carreraService.findById(id);
-        carrera.setCicloList(c.getCicloList());
-        carrera.setDescripcion(c.getDescripcion());
-        carrera.setEvaluacionList(c.getEvaluacionList());
-        carrera.setIdCarrera(c.getIdCarrera());
-        carrera.setIdPeriodoAcademico(c.getIdPeriodoAcademico());
-        carrera.setNombreCarrera(c.getNombreCarrera());
+    public ResponseEntity<Carrera> save(@RequestBody Carrera carrera) {
         return new ResponseEntity<>(carreraService.save(carrera), HttpStatus.CREATED);
     }
 
-    @GetMapping("/listarCodigo/{id}")
-    public Carrera encontrarCodigo(@PathVariable Integer id) {
-        return carreraService.findById(id);
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Integer id) {
+        carreraService.delete(id);
+        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+    }
+
+    @PutMapping("/actualizar/{id}")
+    public ResponseEntity<Carrera> actualizar(@PathVariable Integer id, @RequestBody Carrera carrera) {
+        Carrera carreraActual = carreraService.findById(id);
+        if (carreraActual != null) {
+            carreraActual.setNombreCarrera(carrera.getNombreCarrera());
+            carreraActual.setDescripcion(carrera.getDescripcion());
+            carreraActual.setIdPeriodoAcademico(carrera.getIdPeriodoAcademico());
+            return new ResponseEntity<>(carreraService.save(carreraActual), HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+    }
+
+    @GetMapping("/listar/{id}")
+    public ResponseEntity<Carrera> buscarId(@PathVariable Integer id) {
+        return new ResponseEntity<>(carreraService.findById(id), HttpStatus.OK);
     }
 }

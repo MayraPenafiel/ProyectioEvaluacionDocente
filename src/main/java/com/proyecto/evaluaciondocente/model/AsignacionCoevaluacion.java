@@ -1,6 +1,7 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package com.proyecto.evaluaciondocente.model;
 
@@ -16,11 +17,12 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author ISTA
+ * @author TUF Gaming
  */
 @Entity
 @Table(name = "asignacion_coevaluacion")
@@ -37,6 +39,7 @@ public class AsignacionCoevaluacion implements Serializable {
     private static final long serialVersionUID = 1L;
     @EmbeddedId
     protected AsignacionCoevaluacionPK asignacionCoevaluacionPK;
+    @Size(max = 60)
     @Column(name = "observacion")
     private String observacion;
     @Column(name = "fecha_registro")
@@ -122,7 +125,7 @@ public class AsignacionCoevaluacion implements Serializable {
 
     @Override
     public String toString() {
-        return "com.example.evaluacion_docente.model.AsignacionCoevaluacion[ asignacionCoevaluacionPK=" + asignacionCoevaluacionPK + " ]";
+        return "com.proyecto.evaluaciondocente.model.AsignacionCoevaluacion[ asignacionCoevaluacionPK=" + asignacionCoevaluacionPK + " ]";
     }
     
 }

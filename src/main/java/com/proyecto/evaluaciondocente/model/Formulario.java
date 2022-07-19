@@ -1,11 +1,12 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package com.proyecto.evaluaciondocente.model;
 
 import java.io.Serializable;
-import java.util.List;
+import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,12 +17,13 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author ISTA
+ * @author TUF Gaming
  */
 @Entity
 @Table(name = "formulario")
@@ -39,14 +41,16 @@ public class Formulario implements Serializable {
     @Basic(optional = false)
     @Column(name = "id_formulario")
     private Integer idFormulario;
+    @Size(max = 150)
     @Column(name = "preguntas")
     private String preguntas;
+    @Size(max = 45)
     @Column(name = "observacion")
     private String observacion;
     @OneToMany(mappedBy = "idFormulario")
-    private List<Evaluacion> evaluacionList;
+    private Collection<Evaluacion> evaluacionCollection;
     @OneToMany(mappedBy = "idFormulario")
-    private List<FormularioTipoformulario> formularioTipoformularioList;
+    private Collection<FormularioTipoformulario> formularioTipoformularioCollection;
 
     public Formulario() {
     }
@@ -80,21 +84,21 @@ public class Formulario implements Serializable {
     }
 
     @XmlTransient
-    public List<Evaluacion> getEvaluacionList() {
-        return evaluacionList;
+    public Collection<Evaluacion> getEvaluacionCollection() {
+        return evaluacionCollection;
     }
 
-    public void setEvaluacionList(List<Evaluacion> evaluacionList) {
-        this.evaluacionList = evaluacionList;
+    public void setEvaluacionCollection(Collection<Evaluacion> evaluacionCollection) {
+        this.evaluacionCollection = evaluacionCollection;
     }
 
     @XmlTransient
-    public List<FormularioTipoformulario> getFormularioTipoformularioList() {
-        return formularioTipoformularioList;
+    public Collection<FormularioTipoformulario> getFormularioTipoformularioCollection() {
+        return formularioTipoformularioCollection;
     }
 
-    public void setFormularioTipoformularioList(List<FormularioTipoformulario> formularioTipoformularioList) {
-        this.formularioTipoformularioList = formularioTipoformularioList;
+    public void setFormularioTipoformularioCollection(Collection<FormularioTipoformulario> formularioTipoformularioCollection) {
+        this.formularioTipoformularioCollection = formularioTipoformularioCollection;
     }
 
     @Override
@@ -119,7 +123,7 @@ public class Formulario implements Serializable {
 
     @Override
     public String toString() {
-        return "com.example.evaluacion_docente.model.Formulario[ idFormulario=" + idFormulario + " ]";
+        return "com.proyecto.evaluaciondocente.model.Formulario[ idFormulario=" + idFormulario + " ]";
     }
     
 }

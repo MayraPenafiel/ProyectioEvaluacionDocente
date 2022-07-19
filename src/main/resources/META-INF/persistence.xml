@@ -2,6 +2,20 @@
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
   <persistence-unit name="com.proyecto_evaluaciondocente_jar_0.0.1-SNAPSHOTPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>com.proyecto.evaluaciondocente.model.Persona</class>
+    <class>com.proyecto.evaluaciondocente.model.Ciclo</class>
+    <class>com.proyecto.evaluaciondocente.model.Rol</class>
+    <class>com.proyecto.evaluaciondocente.model.Evaluacion</class>
+    <class>com.proyecto.evaluaciondocente.model.FormularioTipoformulario</class>
+    <class>com.proyecto.evaluaciondocente.model.Formulario</class>
+    <class>com.proyecto.evaluaciondocente.model.TipoFormulario</class>
+    <class>com.proyecto.evaluaciondocente.model.Usuario</class>
+    <class>com.proyecto.evaluaciondocente.model.AsignacionCoevaluacion</class>
+    <class>com.proyecto.evaluaciondocente.model.PeriodoAcademico</class>
+    <class>com.proyecto.evaluaciondocente.model.PersonaMateria</class>
+    <class>com.proyecto.evaluaciondocente.model.Carrera</class>
+    <class>com.proyecto.evaluaciondocente.model.Estudiante</class>
+    <class>com.proyecto.evaluaciondocente.model.Materia</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306?zeroDateTimeBehavior=CONVERT_TO_NULL"/>
       <property name="javax.persistence.jdbc.user" value="root"/>

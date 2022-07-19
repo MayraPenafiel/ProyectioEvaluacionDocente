@@ -1,6 +1,7 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package com.proyecto.evaluaciondocente.model;
 
@@ -20,7 +21,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author ISTA
+ * @author TUF Gaming
  */
 @Entity
 @Table(name = "formulario_tipoformulario")
@@ -96,7 +97,7 @@ public class FormularioTipoformulario implements Serializable {
 
     @Override
     public String toString() {
-        return "com.example.evaluacion_docente.model.FormularioTipoformulario[ idFormulariotipoformulario=" + idFormulariotipoformulario + " ]";
+        return "com.proyecto.evaluaciondocente.model.FormularioTipoformulario[ idFormulariotipoformulario=" + idFormulariotipoformulario + " ]";
     }
     
 }

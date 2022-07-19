@@ -1,6 +1,7 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package com.proyecto.evaluaciondocente.model;
 
@@ -19,11 +20,12 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author ISTA
+ * @author TUF Gaming
  */
 @Entity
 @Table(name = "evaluacion")
@@ -47,6 +49,7 @@ public class Evaluacion implements Serializable {
     @Column(name = "fecha")
     @Temporal(TemporalType.DATE)
     private Date fecha;
+    @Size(max = 255)
     @Column(name = "observacion")
     private String observacion;
     @JoinColumn(name = "id_carrera", referencedColumnName = "id_carrera")
@@ -64,12 +67,12 @@ public class Evaluacion implements Serializable {
     @JoinColumn(name = "id_persona", referencedColumnName = "id_persona")
     @ManyToOne
     private Persona idPersona;
-    @JoinColumn(name = "id_tipo_formulario", referencedColumnName = "idtipo_formulario")
-    @ManyToOne
-    private TipoFormulario idTipoFormulario;
     @JoinColumn(name = "id_estudiante", referencedColumnName = "id_persona")
     @ManyToOne
     private Persona idEstudiante;
+    @JoinColumn(name = "id_tipo_formulario", referencedColumnName = "idtipo_formulario")
+    @ManyToOne
+    private TipoFormulario idTipoFormulario;
 
     public Evaluacion() {
     }
@@ -150,20 +153,20 @@ public class Evaluacion implements Serializable {
         this.idPersona = idPersona;
     }
 
-    public TipoFormulario getIdTipoFormulario() {
-        return idTipoFormulario;
-    }
-
-    public void setIdTipoFormulario(TipoFormulario idTipoFormulario) {
-        this.idTipoFormulario = idTipoFormulario;
-    }
-
     public Persona getIdEstudiante() {
         return idEstudiante;
     }
 
     public void setIdEstudiante(Persona idEstudiante) {
         this.idEstudiante = idEstudiante;
+    }
+
+    public TipoFormulario getIdTipoFormulario() {
+        return idTipoFormulario;
+    }
+
+    public void setIdTipoFormulario(TipoFormulario idTipoFormulario) {
+        this.idTipoFormulario = idTipoFormulario;
     }
 
     @Override
@@ -188,7 +191,7 @@ public class Evaluacion implements Serializable {
 
     @Override
     public String toString() {
-        return "com.example.evaluacion_docente.model.Evaluacion[ idEvaluacion=" + idEvaluacion + " ]";
+        return "com.proyecto.evaluaciondocente.model.Evaluacion[ idEvaluacion=" + idEvaluacion + " ]";
     }
     
 }

@@ -1,12 +1,14 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package com.proyecto.evaluaciondocente.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Date;
-import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -19,12 +21,13 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author ISTA
+ * @author TUF Gaming
  */
 @Entity
 @Table(name = "periodo_academico")
@@ -43,6 +46,7 @@ public class PeriodoAcademico implements Serializable {
     @Basic(optional = false)
     @Column(name = "id_periodo_academico")
     private Integer idPeriodoAcademico;
+    @Size(max = 45)
     @Column(name = "periodo")
     private String periodo;
     @Column(name = "fecha_inicio")
@@ -51,8 +55,9 @@ public class PeriodoAcademico implements Serializable {
     @Column(name = "fecha_fin")
     @Temporal(TemporalType.DATE)
     private Date fechaFin;
+    @JsonIgnore
     @OneToMany(mappedBy = "idPeriodoAcademico")
-    private List<Carrera> carreraList;
+    private Collection<Carrera> carreraCollection;
 
     public PeriodoAcademico() {
     }
@@ -94,12 +99,12 @@ public class PeriodoAcademico implements Serializable {
     }
 
     @XmlTransient
-    public List<Carrera> getCarreraList() {
-        return carreraList;
+    public Collection<Carrera> getCarreraCollection() {
+        return carreraCollection;
     }
 
-    public void setCarreraList(List<Carrera> carreraList) {
-        this.carreraList = carreraList;
+    public void setCarreraCollection(Collection<Carrera> carreraCollection) {
+        this.carreraCollection = carreraCollection;
     }
 
     @Override
@@ -124,7 +129,7 @@ public class PeriodoAcademico implements Serializable {
 
     @Override
     public String toString() {
-        return "com.example.evaluacion_docente.model.PeriodoAcademico[ idPeriodoAcademico=" + idPeriodoAcademico + " ]";
+        return "com.proyecto.evaluaciondocente.model.PeriodoAcademico[ idPeriodoAcademico=" + idPeriodoAcademico + " ]";
     }
     
 }

@@ -54,7 +54,7 @@ public class RolController {
         rol.setFechaHoraRegistro(c.getFechaHoraRegistro());
         rol.setIdRol(c.getIdRol());
         rol.setRol(c.getRol());
-        rol.setUsuarioList(c.getUsuarioList());
+//        rol.setUsuarioList(c.getUsuarioList());
         return new ResponseEntity<>(rolService.save(rol), HttpStatus.CREATED);
         
     }

@@ -51,24 +51,24 @@ public class PersonaController {
     public ResponseEntity<Persona> actualizarPersona(@RequestBody Persona c, @PathVariable Integer id) {
         Persona persona = personaService.findById(id);
         persona.setApellido(c.getApellido());
-        persona.setAsignacionCoevaluacionList(c.getAsignacionCoevaluacionList());
-        persona.setAsignacionCoevaluacionList1(c.getAsignacionCoevaluacionList1());
+//        persona.setAsignacionCoevaluacionList(c.getAsignacionCoevaluacionList());
+//        persona.setAsignacionCoevaluacionList1(c.getAsignacionCoevaluacionList1());
         persona.setCedula(c.getCedula());
         persona.setCelular(c.getCelular());
         persona.setCorreo(c.getCorreo());
         persona.setDireccion(c.getDireccion());
         persona.setEstadoComision(c.getEstadoComision());
         persona.setEstadoEvaluacion(c.getEstadoEvaluacion());
-        persona.setEvaluacionList(c.getEvaluacionList());
-        persona.setEvaluacionList1(c.getEvaluacionList1());
+//        persona.setEvaluacionList(c.getEvaluacionList());
+//        persona.setEvaluacionList1(c.getEvaluacionList1());
         persona.setFechaNacimiento(c.getFechaNacimiento());
         persona.setFoto(c.getFoto());
         persona.setGenero(c.getGenero());
         persona.setIdPersona(c.getIdPersona());
         persona.setIntruccion(c.getIntruccion());
-        persona.setNombre(c.getNombre());
-        persona.setPersonaMateriaList(c.getPersonaMateriaList());
-        persona.setUsuarioList(c.getUsuarioList());
+//        persona.setNombre(c.getNombre());
+//        persona.setPersonaMateriaList(c.getPersonaMateriaList());
+//        persona.setUsuarioList(c.getUsuarioList());
         return new ResponseEntity<>(personaService.save(persona), HttpStatus.CREATED);
     }
 

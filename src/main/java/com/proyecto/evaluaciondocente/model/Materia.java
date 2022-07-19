@@ -1,11 +1,12 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package com.proyecto.evaluaciondocente.model;
 
 import java.io.Serializable;
-import java.util.List;
+import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -19,12 +20,13 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author ISTA
+ * @author TUF Gaming
  */
 @Entity
 @Table(name = "materia")
@@ -41,12 +43,13 @@ public class Materia implements Serializable {
     @Basic(optional = false)
     @Column(name = "id_materia")
     private Integer idMateria;
+    @Size(max = 45)
     @Column(name = "nombre_Materia")
     private String nombreMateria;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "materia")
-    private List<PersonaMateria> personaMateriaList;
+    private Collection<PersonaMateria> personaMateriaCollection;
     @OneToMany(mappedBy = "idMateria")
-    private List<Evaluacion> evaluacionList;
+    private Collection<Evaluacion> evaluacionCollection;
     @JoinColumn(name = "id_ciclo", referencedColumnName = "id_ciclo")
     @ManyToOne
     private Ciclo idCiclo;
@@ -75,21 +78,21 @@ public class Materia implements Serializable {
     }
 
     @XmlTransient
-    public List<PersonaMateria> getPersonaMateriaList() {
-        return personaMateriaList;
+    public Collection<PersonaMateria> getPersonaMateriaCollection() {
+        return personaMateriaCollection;
     }
 
-    public void setPersonaMateriaList(List<PersonaMateria> personaMateriaList) {
-        this.personaMateriaList = personaMateriaList;
+    public void setPersonaMateriaCollection(Collection<PersonaMateria> personaMateriaCollection) {
+        this.personaMateriaCollection = personaMateriaCollection;
     }
 
     @XmlTransient
-    public List<Evaluacion> getEvaluacionList() {
-        return evaluacionList;
+    public Collection<Evaluacion> getEvaluacionCollection() {
+        return evaluacionCollection;
     }
 
-    public void setEvaluacionList(List<Evaluacion> evaluacionList) {
-        this.evaluacionList = evaluacionList;
+    public void setEvaluacionCollection(Collection<Evaluacion> evaluacionCollection) {
+        this.evaluacionCollection = evaluacionCollection;
     }
 
     public Ciclo getIdCiclo() {
@@ -122,7 +125,7 @@ public class Materia implements Serializable {
 
     @Override
     public String toString() {
-        return "com.example.evaluacion_docente.model.Materia[ idMateria=" + idMateria + " ]";
+        return "com.proyecto.evaluaciondocente.model.Materia[ idMateria=" + idMateria + " ]";
     }
     
 }
