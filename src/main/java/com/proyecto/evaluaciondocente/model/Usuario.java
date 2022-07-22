@@ -5,6 +5,7 @@
  */
 package com.proyecto.evaluaciondocente.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -51,9 +52,11 @@ public class Usuario implements Serializable {
     @Size(max = 2147483647)
     @Column(name = "fecha_hora_registro")
     private String fechaHoraRegistro;
+    @JsonIgnore
     @JoinColumn(name = "id_persona", referencedColumnName = "id_persona")
     @ManyToOne
     private Persona idPersona;
+    @JsonIgnore
     @JoinColumn(name = "id_rol", referencedColumnName = "id_rol")
     @ManyToOne
     private Rol idRol;
@@ -137,5 +140,5 @@ public class Usuario implements Serializable {
     public String toString() {
         return "com.proyecto.evaluaciondocente.model.Usuario[ idUsuario=" + idUsuario + " ]";
     }
-    
+
 }

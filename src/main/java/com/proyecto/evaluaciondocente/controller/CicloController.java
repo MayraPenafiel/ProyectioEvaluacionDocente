@@ -52,8 +52,8 @@ public class CicloController {
         Ciclo ciclo = cicloService.findById(id);
         ciclo.setCiclo(c.getCiclo());
 //        ciclo.setEvaluacionList(c.getEvaluacionList());
-//        ciclo.setIdCarrera(c.getIdCarrera());
-//        ciclo.setId_ciclo(c.getId_ciclo());
+        ciclo.setIdCarrera(c.getIdCarrera());
+        ciclo.setIdCiclo(c.getIdCiclo());
 //        ciclo.setMateriaList(c.getMateriaList());
         ciclo.setObservaciones(c.getObservaciones());
         return new ResponseEntity<>(cicloService.save(ciclo), HttpStatus.CREATED);

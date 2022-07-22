@@ -42,7 +42,7 @@ public class CarreraController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<Void> delete(@PathVariable Integer id) {
+    public ResponseEntity<Carrera> delete(@PathVariable Integer id) {
         carreraService.delete(id);
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }

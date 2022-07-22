@@ -5,6 +5,7 @@
  */
 package com.proyecto.evaluaciondocente.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.Collection;
 import javax.persistence.Basic;
@@ -49,11 +50,14 @@ public class Ciclo implements Serializable {
     @Size(max = 45)
     @Column(name = "observaciones")
     private String observaciones;
+    @JsonIgnore
     @JoinColumn(name = "id_carrera", referencedColumnName = "id_carrera")
     @ManyToOne
     private Carrera idCarrera;
+    @JsonIgnore
     @OneToMany(mappedBy = "idCiclo")
     private Collection<Evaluacion> evaluacionCollection;
+    @JsonIgnore
     @OneToMany(mappedBy = "idCiclo")
     private Collection<Materia> materiaCollection;
 
@@ -138,5 +142,5 @@ public class Ciclo implements Serializable {
     public String toString() {
         return "com.proyecto.evaluaciondocente.model.Ciclo[ idCiclo=" + idCiclo + " ]";
     }
-    
+
 }

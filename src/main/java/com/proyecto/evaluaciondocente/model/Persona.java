@@ -5,6 +5,7 @@
  */
 package com.proyecto.evaluaciondocente.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
@@ -87,16 +88,22 @@ public class Persona implements Serializable {
     private Integer estadoEvaluacion;
     @Column(name = "estado_comision")
     private Integer estadoComision;
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "persona")
     private Collection<PersonaMateria> personaMateriaCollection;
+    @JsonIgnore
     @OneToMany(mappedBy = "idPersona")
     private Collection<Evaluacion> evaluacionCollection;
+    @JsonIgnore
     @OneToMany(mappedBy = "idEstudiante")
     private Collection<Evaluacion> evaluacionCollection1;
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "persona")
     private Collection<AsignacionCoevaluacion> asignacionCoevaluacionCollection;
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "persona1")
     private Collection<AsignacionCoevaluacion> asignacionCoevaluacionCollection1;
+    @JsonIgnore
     @OneToMany(mappedBy = "idPersona")
     private Collection<Usuario> usuarioCollection;
 
@@ -289,5 +296,5 @@ public class Persona implements Serializable {
     public String toString() {
         return "com.proyecto.evaluaciondocente.model.Persona[ idPersona=" + idPersona + " ]";
     }
-    
+
 }

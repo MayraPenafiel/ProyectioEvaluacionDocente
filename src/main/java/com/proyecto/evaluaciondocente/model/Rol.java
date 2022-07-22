@@ -5,6 +5,7 @@
  */
 package com.proyecto.evaluaciondocente.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
@@ -54,6 +55,7 @@ public class Rol implements Serializable {
     @Column(name = "fecha_hora_registro")
     @Temporal(TemporalType.TIMESTAMP)
     private Date fechaHoraRegistro;
+    @JsonIgnore
     @OneToMany(mappedBy = "idRol")
     private Collection<Usuario> usuarioCollection;
 

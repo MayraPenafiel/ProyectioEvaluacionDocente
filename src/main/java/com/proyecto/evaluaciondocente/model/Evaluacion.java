@@ -5,6 +5,7 @@
  */
 package com.proyecto.evaluaciondocente.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Basic;
@@ -52,24 +53,30 @@ public class Evaluacion implements Serializable {
     @Size(max = 255)
     @Column(name = "observacion")
     private String observacion;
+    @JsonIgnore
     @JoinColumn(name = "id_carrera", referencedColumnName = "id_carrera")
     @ManyToOne
     private Carrera idCarrera;
+    @JsonIgnore
     @JoinColumn(name = "id_ciclo", referencedColumnName = "id_ciclo")
     @ManyToOne
     private Ciclo idCiclo;
+    @JsonIgnore
     @JoinColumn(name = "id_formulario", referencedColumnName = "id_formulario")
     @ManyToOne
     private Formulario idFormulario;
     @JoinColumn(name = "id_materia", referencedColumnName = "id_materia")
     @ManyToOne
     private Materia idMateria;
+    @JsonIgnore
     @JoinColumn(name = "id_persona", referencedColumnName = "id_persona")
     @ManyToOne
     private Persona idPersona;
+    @JsonIgnore
     @JoinColumn(name = "id_estudiante", referencedColumnName = "id_persona")
     @ManyToOne
     private Persona idEstudiante;
+    @JsonIgnore
     @JoinColumn(name = "id_tipo_formulario", referencedColumnName = "idtipo_formulario")
     @ManyToOne
     private TipoFormulario idTipoFormulario;
@@ -193,5 +200,5 @@ public class Evaluacion implements Serializable {
     public String toString() {
         return "com.proyecto.evaluaciondocente.model.Evaluacion[ idEvaluacion=" + idEvaluacion + " ]";
     }
-    
+
 }

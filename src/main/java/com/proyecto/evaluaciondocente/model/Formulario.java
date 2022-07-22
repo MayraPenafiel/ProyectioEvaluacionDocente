@@ -5,6 +5,7 @@
  */
 package com.proyecto.evaluaciondocente.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.Collection;
 import javax.persistence.Basic;
@@ -47,8 +48,10 @@ public class Formulario implements Serializable {
     @Size(max = 45)
     @Column(name = "observacion")
     private String observacion;
+    @JsonIgnore
     @OneToMany(mappedBy = "idFormulario")
     private Collection<Evaluacion> evaluacionCollection;
+    @JsonIgnore
     @OneToMany(mappedBy = "idFormulario")
     private Collection<FormularioTipoformulario> formularioTipoformularioCollection;
 
@@ -125,5 +128,5 @@ public class Formulario implements Serializable {
     public String toString() {
         return "com.proyecto.evaluaciondocente.model.Formulario[ idFormulario=" + idFormulario + " ]";
     }
-    
+
 }
