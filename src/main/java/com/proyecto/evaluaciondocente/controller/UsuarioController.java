@@ -54,7 +54,6 @@ public class UsuarioController {
         usuario.setFechaHoraRegistro(c.getFechaHoraRegistro());
         usuario.setIdPersona(c.getIdPersona());
         usuario.setIdRol(c.getIdRol());
-        usuario.setIdUsuario(c.getIdUsuario());
         usuario.setUsuario(c.getUsuario());
         return new ResponseEntity<>(usuarioService.save(usuario), HttpStatus.CREATED);
     }

@@ -56,7 +56,6 @@ public class EvaluacionController {
         evaluacion.setIdCarrera(c.getIdCarrera());
         evaluacion.setIdCiclo(c.getIdCiclo());
         evaluacion.setIdEstudiante(c.getIdEstudiante());
-        evaluacion.setIdEvaluacion(c.getIdEvaluacion());
         evaluacion.setIdFormulario(c.getIdFormulario());
         evaluacion.setIdMateria(c.getIdMateria());
         evaluacion.setIdPersona(c.getIdPersona());

@@ -64,7 +64,6 @@ public class PersonaController {
         persona.setFechaNacimiento(c.getFechaNacimiento());
         persona.setFoto(c.getFoto());
         persona.setGenero(c.getGenero());
-        persona.setIdPersona(c.getIdPersona());
         persona.setIntruccion(c.getIntruccion());
 //        persona.setNombre(c.getNombre());
 //        persona.setPersonaMateriaList(c.getPersonaMateriaList());

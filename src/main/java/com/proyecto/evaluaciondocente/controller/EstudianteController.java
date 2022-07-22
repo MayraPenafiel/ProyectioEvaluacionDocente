@@ -52,7 +52,6 @@ public class EstudianteController {
         Estudiante estudiante = estudianteService.findById(id);
         estudiante.setApellido(c.getApellido());
         estudiante.setCedula(c.getCedula());
-        estudiante.setIdEstudiante(c.getIdEstudiante());
         estudiante.setNombre(c.getNombre());
         return new ResponseEntity<>(estudianteService.save(estudiante), HttpStatus.CREATED);
     }

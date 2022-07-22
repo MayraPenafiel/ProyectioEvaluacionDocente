@@ -53,7 +53,6 @@ public class PeriodoAcademicoController {
         periodoAcademico.setCarreraCollection(c.getCarreraCollection());
         periodoAcademico.setFechaFin(c.getFechaFin());
         periodoAcademico.setFechaInicio(c.getFechaInicio());
-        periodoAcademico.setIdPeriodoAcademico(c.getIdPeriodoAcademico());
         periodoAcademico.setPeriodo(c.getPeriodo());
         return new ResponseEntity<>(periodoAcademicoService.save(periodoAcademico), HttpStatus.CREATED);
         

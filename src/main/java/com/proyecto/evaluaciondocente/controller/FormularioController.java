@@ -52,7 +52,6 @@ public class FormularioController {
         Formulario formulario = formularioService.findById(id);
 //        formulario.setEvaluacionList(c.getEvaluacionList());
 //        formulario.setFormularioTipoformularioList(c.getFormularioTipoformularioList());
-        formulario.setIdFormulario(c.getIdFormulario());
         formulario.setObservacion(c.getObservacion());
         formulario.setPreguntas(c.getPreguntas());
         return new ResponseEntity<>(formularioService.save(formulario), HttpStatus.CREATED);
