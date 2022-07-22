@@ -40,14 +40,14 @@ public class EstudianteController {
         return new ResponseEntity<>(estudianteService.save(c), HttpStatus.CREATED);
     }
 
-    @DeleteMapping("/eliminar/{codigo}")
+    @DeleteMapping("/eliminar/{id}")
     public ResponseEntity<Estudiante> eliminarEstudiante(@PathVariable Integer id) {
         estudianteService.delete(id);
         return new ResponseEntity<>(HttpStatus.OK);
 
     }
 
-    @PutMapping("/actualizar/{codigo}")
+    @PutMapping("/actualizar/{id}")
     public ResponseEntity<Estudiante> actualizarEstudiante(@RequestBody Estudiante c, @PathVariable Integer id) {
         Estudiante estudiante = estudianteService.findById(id);
         estudiante.setApellido(c.getApellido());
@@ -56,7 +56,7 @@ public class EstudianteController {
         return new ResponseEntity<>(estudianteService.save(estudiante), HttpStatus.CREATED);
     }
 
-    @GetMapping("/listarCodigo/{codigo}")
+    @GetMapping("/listarCodigo/{id}")
     public Estudiante encontrarCodigo(@PathVariable Integer id) {
         return estudianteService.findById(id);
     }
