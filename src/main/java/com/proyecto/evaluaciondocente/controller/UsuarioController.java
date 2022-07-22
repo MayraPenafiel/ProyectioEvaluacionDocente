@@ -40,14 +40,14 @@ public class UsuarioController {
         return new ResponseEntity<>(usuarioService.save(c), HttpStatus.CREATED);
     }
     
-    @DeleteMapping("/eliminar/{codigo}")
+    @DeleteMapping("/eliminar/{id}")
     public ResponseEntity<Usuario> eliminarUsuario(@PathVariable Integer id) {
         usuarioService.delete(id);
         return new ResponseEntity<>(HttpStatus.OK);
         
     }
     
-    @PutMapping("/actualizar/{codigo}")
+    @PutMapping("/actualizar/{id}")
     public ResponseEntity<Usuario> actualizarUsuario(@RequestBody Usuario c, @PathVariable Integer id) {
         Usuario usuario = usuarioService.findById(id);
         usuario.setContrasenia(c.getContrasenia());
@@ -59,7 +59,7 @@ public class UsuarioController {
         return new ResponseEntity<>(usuarioService.save(usuario), HttpStatus.CREATED);
     }
     
-    @GetMapping("/listarCodigo/{codigo}")
+    @GetMapping("/listarCodigo/{id}")
     public Usuario encontrarCodigo(@PathVariable Integer id) {
         return usuarioService.findById(id);
     }

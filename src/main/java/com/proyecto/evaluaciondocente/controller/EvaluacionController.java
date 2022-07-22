@@ -48,7 +48,7 @@ public class EvaluacionController {
 
     }
 
-    @PutMapping("/actualizar/{codigo}")
+    @PutMapping("/actualizar/{id}")
     public ResponseEntity<Evaluacion> actualizarEvaluacion(@RequestBody Evaluacion c, @PathVariable Integer id) {
         Evaluacion evaluacion = evaluacionService.findById(id);
         evaluacion.setCalificacion(c.getCalificacion());
@@ -66,9 +66,8 @@ public class EvaluacionController {
 
     }
 
-    @GetMapping("/listarCodigo/{codigo}")
-    public Evaluacion encontrarCodigo(@PathVariable String codigo) {
-        int id = Integer.parseInt(codigo.substring(3));
+    @GetMapping("/listarCodigo/{id}")
+    public Evaluacion encontrarCodigo(@PathVariable Integer id) {
         return evaluacionService.findById(id);
     }
 }

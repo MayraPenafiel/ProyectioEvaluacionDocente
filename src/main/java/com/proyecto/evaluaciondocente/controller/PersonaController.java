@@ -40,14 +40,14 @@ public class PersonaController {
         return new ResponseEntity<>(personaService.save(c), HttpStatus.CREATED);
     }
 
-    @DeleteMapping("/eliminar/{codigo}")
+    @DeleteMapping("/eliminar/{id}")
     public ResponseEntity<Persona> eliminarPersona(@PathVariable Integer id) {
         personaService.delete(id);
         return new ResponseEntity<>(HttpStatus.OK);
 
     }
 
-    @PutMapping("/actualizar/{codigo}")
+    @PutMapping("/actualizar/{id}")
     public ResponseEntity<Persona> actualizarPersona(@RequestBody Persona c, @PathVariable Integer id) {
         Persona persona = personaService.findById(id);
         persona.setApellido(c.getApellido());
@@ -72,7 +72,7 @@ public class PersonaController {
         return new ResponseEntity<>(personaService.save(persona), HttpStatus.CREATED);
     }
 
-    @GetMapping("/listarCodigo/{codigo}")
+    @GetMapping("/listarCodigo/{id}")
     public Persona encontrarCodigo(@PathVariable Integer id) {
         return personaService.findById(id);
     }

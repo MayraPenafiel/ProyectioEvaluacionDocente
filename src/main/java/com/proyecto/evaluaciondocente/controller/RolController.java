@@ -40,14 +40,14 @@ public class RolController {
         return new ResponseEntity<>(rolService.save(c), HttpStatus.CREATED);
     }
     
-    @DeleteMapping("/eliminar/{codigo}")
+    @DeleteMapping("/eliminar/{id}")
     public ResponseEntity<Rol> eliminarRol(@PathVariable Integer id) {
         rolService.delete(id);
         return new ResponseEntity<>(HttpStatus.OK);
         
     }
     
-    @PutMapping("/actualizar/{codigo}")
+    @PutMapping("/actualizar/{id}")
     public ResponseEntity<Rol> actualizarRol(@RequestBody Rol c, @PathVariable Integer id) {
         Rol rol = rolService.findById(id);
         rol.setDescripcion(c.getDescripcion());
@@ -59,7 +59,7 @@ public class RolController {
         
     }
     
-    @GetMapping("/listarCodigo/{codigo}")
+    @GetMapping("/listarCodigo/{id}")
     public Rol encontrarCodigo(@PathVariable Integer id) {
         return rolService.findById(id);
     }

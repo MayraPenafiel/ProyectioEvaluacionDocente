@@ -42,14 +42,14 @@ public class MateriaController {
         return new ResponseEntity<>(materiaService.save(c), HttpStatus.CREATED);
     }
 
-    @DeleteMapping("/eliminar/{codigo}")
+    @DeleteMapping("/eliminar/{id}")
     public ResponseEntity<Materia> eliminarMateria(@PathVariable Integer id) {
         materiaService.delete(id);
         return new ResponseEntity<>(HttpStatus.OK);
 
     }
 
-    @PutMapping("/actualizar/{codigo}")
+    @PutMapping("/actualizar/{id}")
     public ResponseEntity<Materia> actualizarMateria(@RequestBody Materia c, @PathVariable Integer id) {
         Materia materia = materiaService.findById(id);
 //        materia.setEvaluacionList(c.getEvaluacionList());
@@ -61,7 +61,7 @@ public class MateriaController {
 
     }
 
-    @GetMapping("/listarCodigo/{codigo}")
+    @GetMapping("/listarCodigo/{id}")
     public Materia encontrarCodigo(@PathVariable Integer id) {
         return materiaService.findById(id);
     }

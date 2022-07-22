@@ -40,16 +40,15 @@ public class PeriodoAcademicoController {
         return new ResponseEntity<>(periodoAcademicoService.save(c), HttpStatus.CREATED);
     }
     
-    @DeleteMapping("/eliminar/{codigo}")
+    @DeleteMapping("/eliminar/{id}")
     public ResponseEntity<PeriodoAcademico> eliminarPeriodoAcademico(@PathVariable Integer id) {
         periodoAcademicoService.delete(id);
         return new ResponseEntity<>(HttpStatus.OK);
         
     }
     
-    @PutMapping("/actualizar/{codigo}")
-    public ResponseEntity<PeriodoAcademico> actualizarPeriodoAcademico(@RequestBody PeriodoAcademico c, @PathVariable String codigo) {
-        int id = Integer.parseInt(codigo.substring(3));
+    @PutMapping("/actualizar/{id}")
+    public ResponseEntity<PeriodoAcademico> actualizarPeriodoAcademico(@RequestBody PeriodoAcademico c, @PathVariable Integer id) {
         PeriodoAcademico periodoAcademico = periodoAcademicoService.findById(id);
         periodoAcademico.setCarreraCollection(c.getCarreraCollection());
         periodoAcademico.setFechaFin(c.getFechaFin());
@@ -60,7 +59,7 @@ public class PeriodoAcademicoController {
         
     }
     
-    @GetMapping("/listarCodigo/{codigo}")
+    @GetMapping("/listarCodigo/{id}")
     public PeriodoAcademico encontrarCodigo(@PathVariable Integer id) {
         return periodoAcademicoService.findById(id);
     }
