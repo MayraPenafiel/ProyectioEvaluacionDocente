@@ -27,7 +27,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Estudiante.findAll", query = "SELECT e FROM Estudiante e"),
-    @NamedQuery(name = "Estudiante.findByIdEstudiante", query = "SELECT e FROM Estudiante e WHERE e.idEstudiante = :idEstudiante"),
+    @NamedQuery(name = "Estudiante.findById", query = "SELECT e FROM Estudiante e WHERE e.id = :id"),
     @NamedQuery(name = "Estudiante.findByNombre", query = "SELECT e FROM Estudiante e WHERE e.nombre = :nombre"),
     @NamedQuery(name = "Estudiante.findByApellido", query = "SELECT e FROM Estudiante e WHERE e.apellido = :apellido"),
     @NamedQuery(name = "Estudiante.findByCedula", query = "SELECT e FROM Estudiante e WHERE e.cedula = :cedula")})
@@ -37,8 +37,8 @@ public class Estudiante implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "idEstudiante")
-    private Integer idEstudiante;
+    @Column(name = "id")
+    private Integer id;
     @Size(max = 45)
     @Column(name = "nombre")
     private String nombre;
@@ -52,16 +52,16 @@ public class Estudiante implements Serializable {
     public Estudiante() {
     }
 
-    public Estudiante(Integer idEstudiante) {
-        this.idEstudiante = idEstudiante;
+    public Estudiante(Integer id) {
+        this.id = id;
     }
 
-    public Integer getIdEstudiante() {
-        return idEstudiante;
+    public Integer getId() {
+        return id;
     }
 
-    public void setIdEstudiante(Integer idEstudiante) {
-        this.idEstudiante = idEstudiante;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getNombre() {
@@ -91,7 +91,7 @@ public class Estudiante implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (idEstudiante != null ? idEstudiante.hashCode() : 0);
+        hash += (id != null ? id.hashCode() : 0);
         return hash;
     }
 
@@ -102,7 +102,7 @@ public class Estudiante implements Serializable {
             return false;
         }
         Estudiante other = (Estudiante) object;
-        if ((this.idEstudiante == null && other.idEstudiante != null) || (this.idEstudiante != null && !this.idEstudiante.equals(other.idEstudiante))) {
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
         return true;
@@ -110,7 +110,7 @@ public class Estudiante implements Serializable {
 
     @Override
     public String toString() {
-        return "com.proyecto.evaluaciondocente.model.Estudiante[ idEstudiante=" + idEstudiante + " ]";
+        return "com.proyecto.evaluaciondocente.model.Estudiante[ id=" + id + " ]";
     }
     
 }
