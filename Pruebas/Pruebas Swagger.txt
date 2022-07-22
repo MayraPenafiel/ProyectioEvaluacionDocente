@@ -1,0 +1,189 @@
+
+Usuario:
+
+//actualizar
+
+{
+  "usuario": "string",
+  "contrasenia": "string",
+  "fechaHoraRegistro": "string"
+}
+
+//crear
+
+{
+  "usuario": "SG",
+  "contrasenia": "t78ui09",
+  "fechaHoraRegistro": "2022-07-22T14:45:25.163Z"
+}
+
+Rol:
+
+//Actualizar 
+
+{
+  "rol": "string",
+  "descripcion": "string",
+  "fechaHoraRegistro": "2022-07-22T14:50:51.304Z"
+}
+
+//Crear
+
+{
+  "rol": "docente",
+  "descripcion": "educador",
+  "fechaHoraRegistro": "2022-07-22T14:44:30.603Z"
+}
+
+Persona:
+
+//Actualizar 
+
+{
+  "nombre": "string",
+  "apellido": "string",
+  "fechaNacimiento": "2022-07-22T14:52:36.435Z",
+  "cedula": "string",
+  "celular": "string",
+  "correo": "string",
+  "genero": 0,
+  "direccion": "string",
+  "foto": "string",
+  "intruccion": 0,
+  "estadoEvaluacion": 0,
+  "estadoComision": 0
+}
+
+//Crear
+{
+  "nombre": "Dylan",
+  "apellido": "Wang",
+  "fechaNacimiento": "2022-07-22T14:53:04.649Z",
+  "cedula": "7418529630",
+  "celular": "0104258744",
+  "correo": "dylang@naver.com",
+  "genero": 1,
+  "direccion": "seul, gamgam 74-9",
+  "foto": "string",
+  "intruccion": 2,
+  "estadoEvaluacion": 0,
+  "estadoComision": 0
+}
+
+Periodo Academico:
+
+//Actualizar 
+
+{
+  "periodo": "string",
+  "fechaInicio": "2022-07-22T14:54:55.218Z",
+  "fechaFin": "2022-07-22T14:54:55.218Z"
+}
+
+//Crear
+{
+  "periodo": "Junio 2024 - Abril 2025",
+  "fechaInicio": "2022-07-22T14:54:55.218Z",
+  "fechaFin": "2022-07-22T14:54:55.218Z"
+}
+
+Materia:
+
+//Actualizar 
+
+{
+   "nombreMateria": "string"
+}
+
+//Crear
+{
+    "nombreMateria": "Economia Doméstica"
+}
+
+Formulario:
+
+//Actualizar
+
+{
+  "preguntas": "string",
+  "observacion": "string"
+}
+ 
+//Crear
+{
+  "preguntas": "´¿Cuanto cual es el simbolo del agua?, cantidad de sangre en el cuerpo ",
+  "observacion": "Quimica-Biologia"
+}
+
+Evaluacion:
+
+//Actualizar 
+
+{
+  "calificacion": 0,
+  "fecha": "2022-07-22T15:04:02.548Z",
+  "observacion": "string",
+  "idMateria": {
+    "idMateria": 0
+  }
+}
+
+//Crear
+{
+  "calificacion": 15,
+  "fecha": "2022-07-22T15:04:02.548Z",
+  "observacion": "Correeecto",
+  "idMateria": {
+    "idMateria": 5
+   }
+}
+
+Estudiante:
+
+//Actualizar
+
+{
+  "nombre": "string",
+  "apellido": "string",
+  "cedula": "string"
+}
+ 
+//Crear
+
+{
+  "nombre": "Hernacio",
+  "apellido": "Rodríguez",
+  "cedula": "7419638520"
+}
+ 
+Ciclo:
+
+//Actualizar 
+
+{
+  "ciclo": "string",
+  "observaciones": "string"
+}
+
+//Crear
+
+{
+  "ciclo": "M2B",
+  "observaciones": "5 Ciclos"
+}
+
+Carrera:
+
+//Actualizar 
+
+{
+  "nombreCarrera": "string",
+  "descripcion": "string"
+}
+
+//Crear
+
+{
+  "nombreCarrera": "Ginmasia",
+  "descripcion": " deportes "
+}
