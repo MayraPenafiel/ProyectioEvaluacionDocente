@@ -47,7 +47,7 @@ public class CicloController {
 
     }
 
-    @PutMapping("/actualizar/{codigo}")
+    @PutMapping("/actualizar/{id}")
     public ResponseEntity<Ciclo> actualizarCiclo(@RequestBody Ciclo c, @PathVariable Integer id) {
         Ciclo ciclo = cicloService.findById(id);
         ciclo.setCiclo(c.getCiclo());

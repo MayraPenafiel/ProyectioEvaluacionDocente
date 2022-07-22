@@ -40,14 +40,14 @@ public class FormularioController {
         return new ResponseEntity<>(formularioService.save(c), HttpStatus.CREATED);
     }
     
-    @DeleteMapping("/eliminar/{codigo}")
+    @DeleteMapping("/eliminar/{id}")
     public ResponseEntity<Formulario> eliminarFormulario(@PathVariable Integer id) {
         formularioService.delete(id);
         return new ResponseEntity<>(HttpStatus.OK);
         
     }
     
-    @PutMapping("/actualizar/{codigo}")
+    @PutMapping("/actualizar/{id}")
     public ResponseEntity<Formulario> actualizarFormulario(@RequestBody Formulario c, @PathVariable Integer id) {
         Formulario formulario = formularioService.findById(id);
 //        formulario.setEvaluacionList(c.getEvaluacionList());
@@ -58,7 +58,7 @@ public class FormularioController {
         
     }
     
-    @GetMapping("/listarCodigo/{codigo}")
+    @GetMapping("/listarCodigo/{id}")
     public Formulario encontrarCodigo(@PathVariable Integer id) {
         return formularioService.findById(id);
     }
