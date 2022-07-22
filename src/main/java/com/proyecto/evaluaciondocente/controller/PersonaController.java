@@ -65,7 +65,7 @@ public class PersonaController {
         persona.setFoto(c.getFoto());
         persona.setGenero(c.getGenero());
         persona.setIntruccion(c.getIntruccion());
-//        persona.setNombre(c.getNombre());
+        persona.setNombre(c.getNombre());
 //        persona.setPersonaMateriaList(c.getPersonaMateriaList());
 //        persona.setUsuarioList(c.getUsuarioList());
         return new ResponseEntity<>(personaService.save(persona), HttpStatus.CREATED);
