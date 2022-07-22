@@ -5,6 +5,7 @@
  */
 package com.proyecto.evaluaciondocente.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -37,9 +38,11 @@ public class FormularioTipoformulario implements Serializable {
     @Basic(optional = false)
     @Column(name = "id_formulariotipoformulario")
     private Integer idFormulariotipoformulario;
+    @JsonIgnore
     @JoinColumn(name = "id_formulario", referencedColumnName = "id_formulario")
     @ManyToOne
     private Formulario idFormulario;
+    @JsonIgnore
     @JoinColumn(name = "idtipo_formulario", referencedColumnName = "idtipo_formulario")
     @ManyToOne
     private TipoFormulario idtipoFormulario;

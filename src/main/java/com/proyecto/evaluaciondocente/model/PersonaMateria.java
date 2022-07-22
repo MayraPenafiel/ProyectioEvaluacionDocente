@@ -5,6 +5,7 @@
  */
 package com.proyecto.evaluaciondocente.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
@@ -35,9 +36,11 @@ public class PersonaMateria implements Serializable {
     protected PersonaMateriaPK personaMateriaPK;
     @Column(name = "estado")
     private Integer estado;
+    @JsonIgnore
     @JoinColumn(name = "id_materia", referencedColumnName = "id_materia", insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private Materia materia;
+    @JsonIgnore
     @JoinColumn(name = "id_persona", referencedColumnName = "id_persona", insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private Persona persona;

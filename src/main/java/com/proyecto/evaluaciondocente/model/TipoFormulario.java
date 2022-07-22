@@ -5,6 +5,7 @@
  */
 package com.proyecto.evaluaciondocente.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.Collection;
 import javax.persistence.Basic;
@@ -50,8 +51,10 @@ public class TipoFormulario implements Serializable {
     @Size(max = 255)
     @Column(name = "tipo_formulario")
     private String tipoFormulario;
+    @JsonIgnore
     @OneToMany(mappedBy = "idTipoFormulario")
     private Collection<Evaluacion> evaluacionCollection;
+    @JsonIgnore
     @OneToMany(mappedBy = "idtipoFormulario")
     private Collection<FormularioTipoformulario> formularioTipoformularioCollection;
 

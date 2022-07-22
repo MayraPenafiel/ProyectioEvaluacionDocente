@@ -5,6 +5,7 @@
  */
 package com.proyecto.evaluaciondocente.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
@@ -45,9 +46,11 @@ public class AsignacionCoevaluacion implements Serializable {
     @Column(name = "fecha_registro")
     @Temporal(TemporalType.DATE)
     private Date fechaRegistro;
+    @JsonIgnore
     @JoinColumn(name = "id_docente_evaluador", referencedColumnName = "id_persona", insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private Persona persona;
+    @JsonIgnore
     @JoinColumn(name = "id_docente_evaluado", referencedColumnName = "id_persona", insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private Persona persona1;
